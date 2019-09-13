@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, Button } from 'react-native';
+import NavButton from './NavButton';
 import styles from './styles';
 
 interface State {
@@ -33,7 +34,7 @@ class NavBar extends React.Component<{}, State> {
     });
   }
 
-  // These menus should be drawers
+  // Refactor into drawers
   handleUserMenu = () => {
     const { userMenuOpen } = this.state;
     this.setState({
@@ -46,34 +47,30 @@ class NavBar extends React.Component<{}, State> {
   renderAppMenu = () => {
     return (
       <View style={styles.menu}>
-        <Text style={styles.menuText}>menu items</Text>
-        <Text style={styles.menuText}>Recent Lists (viewer and editor)</Text>
-        <Text style={styles.menuText}>Recent Lists (viewer and editor)</Text>
-        <Text style={styles.menuText}>Calander</Text>
-        <Text style={styles.menuText}>Budgeter</Text>
-        <Text style={styles.menuText}>Settings</Text>
+        <NavButton title="Recent Lists (viewer and editor)"/>
+        <NavButton title="View Recipes (viewer and editor)"/>
+        <NavButton title="Calander"/>
+        <NavButton title="Budgeter"/>
+        <NavButton title="Settings"/>
       </View>
     );
   }
 
   renderAddMenu = () => {
     return(
-      <View style={styles.menu}>
-        <Text style={styles.menuText}>add options</Text>
-        <Text style={styles.menuText}>New List</Text>
-        <Text style={styles.menuText}>New Recipe</Text>
+      <View style={styles.rightMenu}>
+        <NavButton title="New List" />
+        <NavButton title="New Recipe" />
       </View>
     );
   }
 
   renderUserMenu = () => {
     return (
-      <View style={styles.menu}>
-        <Text style={styles.menuText}>user options</Text>
-        <Text style={styles.menuText}>Profile</Text>
-        <Text style={styles.menuText}>Account Settings</Text>
-        <Text style={styles.menuText}>Login</Text>
-        <Text style={styles.menuText}>Logout</Text>
+      <View style={styles.rightMenu}>
+        <NavButton title="Profile" />
+        <NavButton title="Account" />
+        <NavButton title="Login" />
       </View>
     );
   }

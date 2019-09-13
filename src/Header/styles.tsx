@@ -14,12 +14,32 @@ const styles = StyleSheet.create({
   menu: {
     position: 'absolute',
     top: 50,
+    height: 'auto',
     backgroundColor: 'blue',
     zIndex: 1,
   },
-  menuText: {
-    color: 'white',
+  rightMenu: {
+    position: 'absolute',
+    top: 50,
+    height: 'auto',
+    right: 0,
+    backgroundColor: 'blue',
+    zIndex: 1,
   },
+  navButton: {
+    borderBottomColor: 'yellow',
+    borderBottomWidth: 1,
+    backgroundColor: 'blue',
+    height: 80,
+    width: 140,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  navButtonText: {
+    color: 'white',
+    fontSize: 18,
+    fontFamily: 'sans-serif',
+  }
 });
 
 export default styles;
