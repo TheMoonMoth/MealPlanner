@@ -9,4 +9,6 @@ Setup:
 - cd */MealPlanner
 - `npm install`
 - ensure Expo tools are installed
-- `npm start`
+- `npm run start-dev` to start app in Dev Mode with Tunnel hosting (*recommended*)
+- `npm start` to start app in Production Mode with LAN hosting
+ 
