@@ -13,16 +13,16 @@ interface RecipeT {
 }
 
 interface RecipeProps {
-  item: RecipeT,
+  item: RecipeT;
 }
 
 export class Recipe extends Component<RecipeProps> {
   formatText = (text: string): string => {
-    return text.toUpperCase()
+    return text.toUpperCase();
   }
 
   render() {
-    const { name, note } = this.props.item;  
+    const { name, note } = this.props.item;
     return (
       <View style={styles.listItem}>
         <Text style={styles.listItemText}>{this.formatText(name || note)}</Text>

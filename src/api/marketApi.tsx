@@ -12,8 +12,7 @@ export const getMarkets = async () => {
       body: null,
     });
     return res.json();
-  }
-  catch (err) {
+  } catch (err) {
     return console.warn(err);
   }
 };

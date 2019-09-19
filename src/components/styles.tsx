@@ -4,15 +4,15 @@ import { StyleSheet } from 'react-native';
 const de = StyleSheet.create({
   bug: {
     borderColor: 'red',
-    borderWidth: 5
-  }
+    borderWidth: 5,
+  },
 });
 
 const styles = StyleSheet.create({
   listContainer: {
     width: '100%',
     height: '94%',
-    backgroundColor: 'grey'
+    backgroundColor: 'grey',
   },
   listItem: {
     ...de.bug,
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 24,
     fontFamily: 'sans-serif',
-  }
+  },
 });
 
-export default styles
+export default styles;

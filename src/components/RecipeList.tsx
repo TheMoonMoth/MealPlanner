@@ -3,23 +3,22 @@ import { FlatList, SafeAreaView } from 'react-native';
 import { Recipe } from './Recipe';
 import styles from './styles';
 
-interface State {
-  
-}
+// TYPES:
+import { RecipeT } from '../api/types';
 
 interface Props {
-  recipes: Array<Object>
+  recipes: RecipeT[];
 }
 
-const HOST = 'http://10.0.0.238:3000';
-
-class RecipeList extends React.Component<Props, State> {
+class RecipeList extends React.Component<Props> {
   renderItem = ({ item, index, separators }) => {
     // Logic to insert ADD_RECIPE element
     return (
       <Recipe item={item} key={item.id} />
-    )
+    );
   }
+
+  keyExtractor = (item: RecipeT) => item.id.toString();
 
   render() {
     const { recipes } = this.props;
@@ -29,11 +28,11 @@ class RecipeList extends React.Component<Props, State> {
         <FlatList
           renderItem={this.renderItem}
           data={recipes.length > 0 ? recipes : []}
-          keyExtractor={item => item.id.toString()}
+          keyExtractor={this.keyExtractor}
         />
       </SafeAreaView>
     );
   }
-};
+}
 
 export default RecipeList;

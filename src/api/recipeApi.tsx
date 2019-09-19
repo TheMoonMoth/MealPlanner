@@ -12,8 +12,7 @@ export const getRecipes = async () => {
       body: null,
     });
     return res.json();
-  }
-  catch (err) {
+  } catch (err) {
     return console.warn(err);
-  } 
+  }
 };

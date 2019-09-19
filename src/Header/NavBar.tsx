@@ -47,11 +47,11 @@ class NavBar extends React.Component<{}, State> {
   renderAppMenu = () => {
     return (
       <View style={styles.menu}>
-        <NavButton title="Recent Lists (viewer and editor)"/>
-        <NavButton title="View Recipes (viewer and editor)"/>
-        <NavButton title="Calander"/>
-        <NavButton title="Budgeter"/>
-        <NavButton title="Settings"/>
+        <NavButton title='Recent Lists (viewer and editor)'/>
+        <NavButton title='View Recipes (viewer and editor)'/>
+        <NavButton title='Calander'/>
+        <NavButton title='Budgeter'/>
+        <NavButton title='Settings'/>
       </View>
     );
   }
@@ -59,8 +59,8 @@ class NavBar extends React.Component<{}, State> {
   renderAddMenu = () => {
     return(
       <View style={styles.rightMenu}>
-        <NavButton title="New List" />
-        <NavButton title="New Recipe" />
+        <NavButton title='New List' />
+        <NavButton title='New Recipe' />
       </View>
     );
   }
@@ -68,9 +68,9 @@ class NavBar extends React.Component<{}, State> {
   renderUserMenu = () => {
     return (
       <View style={styles.rightMenu}>
-        <NavButton title="Profile" />
-        <NavButton title="Account" />
-        <NavButton title="Login" />
+        <NavButton title='Profile' />
+        <NavButton title='Account' />
+        <NavButton title='Login' />
       </View>
     );
   }
