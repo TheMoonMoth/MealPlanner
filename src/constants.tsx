@@ -1,0 +1,3 @@
+export const FETCHING_DATA: string = "FETCHING_DATA";
+export const FETCHING_DATA_SUCCESS: string = "FETCHING_DATA_SUCCESS";
+export const FETCHING_DATA_FAILURE: string = "FETCHING_DATA_FAILURE";

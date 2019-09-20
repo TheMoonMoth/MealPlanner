@@ -1,56 +1,24 @@
 import React from 'react';
+import { Provider, connect } from "react-redux";
+import configureStore from "./src/configureStore";
+import Main from './src/Main';
+
+import { fetchRecipes } from './src/actions/dataActions';
+
 import { StyleSheet, Text, View } from 'react-native';
 import { NavBar } from './src/Header';
 import { RecipeList } from './src/components';
-import api from './src/api';
+import api from './src/api/';
 
-export default class App extends React.Component {
-  state = {
-    recipes: [],
-    ingredients: [],
-    markets: [],
-  }
-  
-  async componentDidMount() {
-
-    const recipeData = api.getRecipes();
-    const ingredientData = api.getIngredients();
-    const marketData = api.getMarkets();
-
-    Promise.all([recipeData, ingredientData, marketData]).then((values) => {
-      this.setState({
-        recipes: values[0].recipes, // add type
-        ingredients: values[1].ingredients,
-        markets: values[2].markets,
-      })
-    });
-  }
-
+const store = configureStore();
+class App extends React.Component {
   render() {
-    const { recipes, ingredients, markets } = this.state;
-    console.warn('allData', recipes, ingredients, markets);
     return (
-      <>
-        <View style={styles.headSlug} />
-        <View style={styles.container}>
-          <NavBar />
-          <RecipeList recipes={recipes}/>
-        </View>
-      </>
+      <Provider store={store}>
+        <Main />
+      </Provider>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  headSlug: {
-    height: 25,
-    width: '100%',
-    backgroundColor: 'grey',
-  },
-  container: {
-    flexDirection: 'column',
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
-});
+export default App;
