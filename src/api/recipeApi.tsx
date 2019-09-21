@@ -1,4 +1,5 @@
-const HOST = 'http://10.0.0.238:3000';
+// const HOST = "http://10.0.0.238:3000";
+const HOST = "http://192.168.1.132:3000";
 
 export const getRecipes = async () => {
   // TODO Redux network calls

@@ -9,7 +9,7 @@ import {
 
 export function getData() {
   return {
-    type: REQUEST_RECIPE_DATA
+    type: REQUEST_RECIPE_DATA,
   };
 }
 

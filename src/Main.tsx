@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { fetchRecipes } from './actions/dataActions';
+import { fetchRecipes } from './actions/recipes';
 
 import { StyleSheet, Text, View } from 'react-native';
 import { NavBar } from './Header';
 import { RecipeList } from './components';
-import api from './api/';
 
 class Main extends React.Component {
   state = {
@@ -15,27 +14,16 @@ class Main extends React.Component {
     markets: []
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     const { fetchRecipes } = this.props;
     fetchRecipes();
-    const recipeData = api.getRecipes();
-    const ingredientData = api.getIngredients();
-    const marketData = api.getMarkets();
-
-    Promise.all([recipeData, ingredientData, marketData]).then(values => {
-      this.setState({
-        recipes: values[0].recipes, // add type
-        ingredients: values[1].ingredients,
-        markets: values[2].markets
-      });
-    });
   }
 
   render() {
     const { recipes, ingredients, markets } = this.state;
     const { appData } = this.props;
+    
     console.warn('appData', appData);
-    console.warn('allData', recipes, ingredients, markets);
     return (
       <>
         <View style={styles.headSlug} />
@@ -63,14 +51,10 @@ const styles = StyleSheet.create({
 });
 
 export default connect(
-  state => {
-    return {
-      appData: state.appData,
-    };
-  },
-  dispatch => {
-    return {
-      fetchRecipes: () => dispatch(fetchRecipes())
-    };
-  }
+  state => ({
+    appData: state,
+  }),
+  dispatch => ({
+    fetchRecipes: () => dispatch(fetchRecipes())
+  })
 )(Main);
