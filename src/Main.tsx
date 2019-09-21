@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { fetchRecipes } from './actions/recipes';
+import { fetchIngredients } from './actions/ingredients';
+import { fetchMarkets } from './actions/markets';
 
 import { StyleSheet, Text, View } from 'react-native';
 import { NavBar } from './Header';
@@ -15,8 +17,10 @@ class Main extends React.Component {
   };
 
   componentDidMount() {
-    const { fetchRecipes } = this.props;
+    const { fetchRecipes, fetchIngredients, fetchMarkets } = this.props;
     fetchRecipes();
+    fetchIngredients();
+    fetchMarkets();
   }
 
   render() {
@@ -54,7 +58,9 @@ export default connect(
   state => ({
     appData: state,
   }),
-  dispatch => ({
-    fetchRecipes: () => dispatch(fetchRecipes())
-  })
+  {
+    fetchRecipes,
+    fetchIngredients,
+    fetchMarkets,
+  }
 )(Main);
