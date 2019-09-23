@@ -1,11 +1,10 @@
-// const HOST = "http://10.0.0.238:3000";
-const HOST = "http://192.168.1.132:3000";
+const HOST = 'http://10.0.0.238:3000';
 
 import {
   REQUEST_INGREDIENTS_DATA,
   REQUEST_INGREDIENTS_SUCCESS,
   REQUEST_INGREDIENTS_FAILURE
-} from "../constants";
+} from '../constants';
 
 export function getData() {
   return {

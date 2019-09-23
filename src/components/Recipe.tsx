@@ -22,10 +22,10 @@ export class Recipe extends Component<RecipeProps> {
   }
 
   render() {
-    const { name, note } = this.props.item;
+
     return (
       <View style={styles.listItem}>
-        <Text style={styles.listItemText}>{this.formatText(name || note)}</Text>
+        <Text style={styles.listItemText}>{this.formatText(name || '')}</Text>
       </View>
     );
   }

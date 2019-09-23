@@ -1,41 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { createAppContainer } from 'react-navigation';
 
-import { fetchRecipes } from './actions/recipes';
-import { fetchIngredients } from './actions/ingredients';
-import { fetchMarkets } from './actions/markets';
-
-import { StyleSheet, Text, View } from 'react-native';
-import { NavBar } from './Header';
-import { RecipeList } from './components';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 
 class Main extends React.Component {
-  state = {
-    recipes: [],
-    ingredients: [],
-    markets: []
-  };
-
-  componentDidMount() {
-    const { fetchRecipes, fetchIngredients, fetchMarkets } = this.props;
-    fetchRecipes();
-    fetchIngredients();
-    fetchMarkets();
-  }
-
   render() {
-    const { recipes, ingredients, markets } = this.state;
     const { appData } = this.props;
-    
     console.warn('appData', appData);
     return (
-      <>
+      <SafeAreaView>
         <View style={styles.headSlug} />
-        <View style={styles.container}>
-          <NavBar />
-          <RecipeList recipes={recipes} />
-        </View>
-      </>
+        <Text>{`Main.tsx`}</Text>
+      </SafeAreaView>
     );
   }
 }
@@ -58,9 +35,5 @@ export default connect(
   state => ({
     appData: state,
   }),
-  {
-    fetchRecipes,
-    fetchIngredients,
-    fetchMarkets,
-  }
+  {}
 )(Main);

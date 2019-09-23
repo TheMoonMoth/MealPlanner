@@ -25,3 +25,21 @@ export interface MarketT {
   preferred_recipe_id: number[];
   note: string;
 }
+
+export interface RecipeState {
+  recipes: RecipeT[],
+}
+
+export interface IngredientState {
+  ingredients: IngredientT[];
+}
+
+export interface MarketState {
+  markets: MarketT[];
+}
+
+export interface AppState {
+  recipes: RecipeState;
+  ingredients: IngredientState;
+  markets: MarketState;
+}
